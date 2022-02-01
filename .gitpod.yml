@@ -1,3 +1,13 @@
 tasks:
-  - name: setup
-    init: docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:latest
+  - name: setup jenkins
+    before: docker build -t jenkins .
+    init: docker run --name jenkins --rm -p 8080:8080  -p 50000:50000 -v jenkins-data:/var/jenkins_home jenkins
+    
+ports:
+- port: 8080
+  onOpen: open-browser
+- port: 50000
+  onOpen: ignore
+
+
+
