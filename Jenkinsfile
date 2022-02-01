@@ -4,7 +4,10 @@ pipeline {
     stage('Build') {
       steps {
         tool 'gradle'
-        sh 'gradle build'
+        withGradle() {
+          sh 'gradle build'
+        }
+
       }
     }
 
