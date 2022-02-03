@@ -1,3 +1,16 @@
 tasks:
-  - name: setup
-    init: docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:latest
+  - name: setup 
+    init: sh setup.sh
+
+ports:
+- port: 8080
+  onOpen: open-browser
+- port: 50000
+  onOpen: ignore
+- port: 2376
+  onOpen: ignore
+- port: 9000
+  onOpen: ignore
+
+
+
