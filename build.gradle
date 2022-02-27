@@ -20,15 +20,6 @@ dependencies {
     testImplementation'junit:junit:4.12'
 }
 
-sonarqube {
-    properties{
-      property 'sonar.host.url', sonarQubeUrl
-      property 'sonar.login', sonarQubeLogin
-      property 'sonar.password', sonarQubePassword
-    }
-}
-
-
 task sourceJar(type: Jar) {
     from sourceSets.main.allJava
 }
